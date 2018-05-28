@@ -1,11 +1,8 @@
-var express = require("express");
 var http = require("http");
-var app = express();
-app.set('port', process.env.PORT || 3002);
-app.get('/', function(req, res) {
-    res.send("Hello CMU");
-});
 
-http.createServer(app).listen(app.get('port'), function() {
-    console.log('server listening on port' + app.get('port'));
+http.createServer(function (req, res) {
+    res.writeHead(200, { 'content-Type': 'text/html'});
+    res.end('<h1>Hello CMU</h1>');
+}).listen(54321, function() {
+    console.log('server listening on port 54321');
 });
