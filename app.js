@@ -1,8 +1,17 @@
 var http = require("http");
 
-http.createServer(function (req, res) {
-    res.writeHead(200, { 'content-Type': 'text/html'});
-    res.end('<h1>Hello CMU</h1>');
-}).listen(54321, function() {
-    console.log('server listening on port 54321');
-});
+http.createServer(function(request, response){
+    /* 
+        HTTP 헤더 전송
+        HTTP Status: 200 : OK
+        Content Type: text/plain
+    */
+    response.writeHead(200, {'Content-Type': 'text/plain'});
+    
+    /*
+        Response Body 를 "Hello World" 로 설정
+    */
+    response.end("Hello World\n");
+}).listen(8081);
+
+console.log("Server running at http://127.0.0.1:8081");
